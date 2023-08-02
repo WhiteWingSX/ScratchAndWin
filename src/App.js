@@ -1,23 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import StateGame from './components/pure/stateGame';
+import StateChange from './components/stateChange';
+import QuestionRandom from './components/questionRandom';
+import ImgRandom from './components/pure/ImgRandom';
+import PatternOne from './components/pure/pattern1';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StateGame></StateGame>
+      {/* <StateChange></StateChange> */}
+      {/* <QuestionRandom></QuestionRandom> */}
+      {/* <ImgRandom></ImgRandom> */}
+      {/* <PatternOne></PatternOne> */}
     </div>
   );
 }
