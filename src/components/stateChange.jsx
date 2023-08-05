@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../style/faces/style.css'
 
 const lucky = [
   require('../img/Capa 2.png'),
@@ -12,13 +13,14 @@ const badLucky = [
 
 const StateChange = ({addData}) => {
   const [luck, setLuck] = useState(null);
+  const [animate, setAnimate] = useState(false);
 
 
 
   const RandomLuck = () => {
     const probability = Math.random();
 
-    if (probability < 0.7) {
+    if (probability < 0.4) {
       const randomLuckyIndex = Math.floor(Math.random() * lucky.length);
       setLuck(lucky[randomLuckyIndex]);
       addData(true);
@@ -27,6 +29,10 @@ const StateChange = ({addData}) => {
       setLuck(badLucky[randomBadLuckyIndex]);
       addData(false);
     }
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+    }, 500); 
   };
 
   useEffect(() => {
@@ -35,7 +41,7 @@ const StateChange = ({addData}) => {
 
   return (
     <div>
-      { luck && <img src={luck} className='img'/>}
+      { luck && <img src={luck} className={`img ${animate ? 'img-spin' : ''}`} />}
     </div>
   );
 }

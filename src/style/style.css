@@ -1,6 +1,6 @@
 .img {
-    height: 100px;
-    width: 100px;
+    height: 140px;
+    width: 130px;
 }
 
 .square1 {
@@ -9,12 +9,12 @@
 }
 
 .square2 {
-    background-color: #2f6352;
+    background-color: #1ba577;
     animation: changeColor2 800ms infinite alternate;
 }
 
 .square3 {
-    background-color: #705a3c;
+    background-color: #a36814;
     animation: changeColor3 800ms infinite alternate;
 }
 
@@ -26,7 +26,7 @@
 @keyframes changeColor1{
      
   100% {
-    background-color: #763d4c;
+    background-color: #9d1e3e;
   }
 }
 
@@ -47,6 +47,36 @@
 @keyframes changeColor4{
 
   100% {
-    background-color: #713838;
+    background-color: #9f1212;
   }
+}
+
+.square-clicked {
+  background-color: #bd2249;
+  animation: changeColor1 0s;
+}
+
+.square-clicked1 {
+  background-color: #1fbd88;
+  animation: changeColor1 0s;
+}
+
+.square-clicked2 {
+  background-color: #c17b19;
+  animation: changeColor1 0s;
+}
+
+.square-clicked3 {
+  background-color: #bc1515;
+  animation: changeColor1 0s;
+}
+
+.square-clicked4 {
+  background-color: #1fbd88;
+  animation: changeColor1 0s;
+}
+
+.square-clicked5 {
+  background-color: #bd2249;
+  animation: changeColor1 0s;
 }

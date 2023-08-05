@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import QuestionRandom from '../questionRandom';
-import ImgRandom from './ImgRandom';
 import PatternOne from './pattern1';
 import PatternTwo from './pattern2';
-import PatternThree from './pattern3';
+import QuestionRandom1 from '../questionRandom1';
+import QuestionRandom2 from '../questionRandom2';
+import '../../style/button/style.css'
 
 const StateGame = () => {
 
@@ -11,11 +11,41 @@ const StateGame = () => {
     const [finish, setFinish] = useState(false);
     const [win, setWin] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [clickedSquare, setClickedSquare] = useState(false);
+    const [clickedSquare1, setClickedSquare1] = useState(false);
+    const [clickedSquare2, setClickedSquare2] = useState(false);
+    const [clickedSquare3, setClickedSquare3] = useState(false);
+    const [clickedSquare4, setClickedSquare4] = useState(false);
+    const [clickedSquare5, setClickedSquare5] = useState(false);
 
+
+
+    const handleSquareClick = () => {
+        setClickedSquare(true);
+      };
+
+      const handleSquareClick1 = () => {
+        setClickedSquare1(true);
+      };
+
+      const handleSquareClick2 = () => {
+        setClickedSquare2(true);
+      };
+
+      const handleSquareClick3 = () => {
+        setClickedSquare3(true);
+      };
+
+      const handleSquareClick4 = () => {
+        setClickedSquare4(true);
+      };
+
+      const handleSquareClick5 = () => {
+        setClickedSquare5(true);
+      };
 
     const addData = (data) => {
         setResult([...result,data]);
-        console.log(data);
     }
 
     const ResetGame = () => {
@@ -23,18 +53,22 @@ const StateGame = () => {
         setFinish(false);
         setWin(false);
         setLoading(true);
-        setTimeout(() => {setLoading(false)}, 2000);
+        setTimeout(() => {setLoading(false)}, 0);
+        setClickedSquare(false);
+        setClickedSquare1(false);
+        setClickedSquare2(false);
+        setClickedSquare3(false);
+        setClickedSquare4(false);
+        setClickedSquare5(false);
+
     }
 
     useEffect(() => {
-        console.log(result);
         const countTrue = result.filter(e => e === true).length
         const countBad = result.filter(e => e === false).length
         if(countBad == 3){
-            setTimeout(() => {alert('you loose monkey qliao')}, 100);
             setFinish(true);
         }  else if (countTrue == 3) {
-            setTimeout(() => {alert('you win bastard qliao :3')}, 100);
             setFinish(true);
             setWin(true);
         }
@@ -49,44 +83,72 @@ const StateGame = () => {
 
     return (
         <div>
-            <h3 style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}} >Scratch and Win</h3>
-            <table style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <tbody style={{borderSpacing: '0'}}>
+
+            <h3 style={{display: 'flex', justifyContent: 'center', alignItems: 'center',fontSize: '45px', fontWeight: 'bold'}} >Scratch and Win</h3>
+                <div>
+                <table style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <tbody style={{borderSpacing: '0',}}>
                     <tr>
-                        <td className='square1'><PatternOne/></td>
-                        <td className='square2'><PatternTwo/></td>
-                        <td className='square1'style={{cursor: 'pointer'}}><QuestionRandom finish={finish} addData={addData}/></td>
-                        <td className='square2'style={{cursor: 'pointer'}}><QuestionRandom finish={finish} addData={addData}/></td>
-                        <td className='square1'><PatternTwo/></td>
-                        <td className='square2'><PatternOne/></td>  
+                        <td className='square1 img'><PatternTwo/></td>
+                        <td className='square2 img'><PatternOne/></td>
+                        <td className={`square1 img ${clickedSquare ? 'square-clicked' : ''}`}
+                            style={{ cursor: 'pointer' }}
+                            onClick={handleSquareClick}>
+                             <QuestionRandom2 finish={finish} addData={addData}/>
+                             </td>
+                        <td className={`square2 img ${clickedSquare1 ? 'square-clicked1' : ''}`}
+                            style={{ cursor: 'pointer' }}
+                            onClick={handleSquareClick1}>
+                             <QuestionRandom1 finish={finish} addData={addData}/>
+                             </td>
+                        <td className='square1 img'><PatternTwo/></td>
+                        <td className='square2 img'><PatternOne/></td>  
 
                     </tr>
                     <tr>
-                        <td className='square3'><PatternTwo/></td>
-                        <td className='square4'><PatternOne/></td>
-                        <td className='square3' style={{cursor: 'pointer'}}><QuestionRandom finish={finish} addData={addData}/></td>
-                        <td className='square4' style={{cursor: 'pointer'}}><QuestionRandom finish={finish} addData={addData}/></td>
-                        <td className='square3'><PatternOne/></td>
-                        <td className='square4'><PatternTwo/></td>
+                        <td className='square3 img'><PatternOne/></td>
+                        <td className='square4 img'><PatternTwo/></td>
+                        <td className={`square3 img ${clickedSquare2 ? 'square-clicked2' : ''}`}
+                            style={{ cursor: 'pointer' }}
+                            onClick={handleSquareClick2}>
+                             <QuestionRandom1 finish={finish} addData={addData}/>
+                             </td>
+                        <td className={`square4 img ${clickedSquare3 ? 'square-clicked3' : ''}`}
+                            style={{ cursor: 'pointer' }}
+                            onClick={handleSquareClick3}>
+                             <QuestionRandom2 finish={finish} addData={addData}/>
+                             </td>
+                        <td className='square3 img'><PatternOne/></td>
+                        <td className='square4 img'><PatternTwo/></td>
                     </tr>
                     <tr>
-                        <td className='square2'><PatternOne/></td>
-                        <td className='square1'><PatternTwo/></td>                        
-                        <td className='square2'style={{cursor: 'pointer'}}><QuestionRandom finish={finish} addData={addData}/></td>
-                        <td className='square1'style={{cursor: 'pointer'}}><QuestionRandom finish={finish} addData={addData}/></td>
-                        <td className='square2'><PatternTwo/></td>
-                        <td className='square1'><PatternOne/></td>
+                        <td className='square2 img'><PatternTwo/></td>
+                        <td className='square1 img'><PatternOne/></td>
+                        <td className={`square2 img ${clickedSquare4 ? 'square-clicked4' : ''}`}
+                            style={{ cursor: 'pointer' }}
+                            onClick={handleSquareClick4}>
+                             <QuestionRandom2 finish={finish} addData={addData}/>
+                             </td>
+                        <td className={`square1 img ${clickedSquare5 ? 'square-clicked5' : ''}`}
+                            style={{ cursor: 'pointer' }}
+                            onClick={handleSquareClick5}>
+                             <QuestionRandom1 finish={finish} addData={addData}/>
+                             </td>
+                        <td className='square2 img'><PatternTwo/></td>
+                        <td className='square1 img'><PatternOne/></td>  
                     </tr>
                 </tbody>
             </table>
+            </div>
             {finish ?
             <>
-            <p>{win ? 'You Win' : 'You loose'}</p>
-            <button onClick={ResetGame}>Try again</button>
+            <p style={{fontSize: '45px', fontWeight: 'bold'}}>{win ? 'You Win' : 'You Loose'}</p>
+            <button onClick={ResetGame} className='btn'>Try again</button>
             </>
             :
-            null
+            <button onClick={ResetGame} className='btn'>Reset</button>
             }
+            
         </div>
     );
 }

@@ -1,0 +1,19 @@
+.btn {
+    height: 60px;
+    width: 120px;
+    background-color: #bbbbbb;
+    margin-top: 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    border-bottom: 5px solid #aaaaaa;
+}
+
+.btn:hover {
+    background-color: #cccccc;
+}
+
+.btn:active {
+    background-color: #aaaaaa;
+    border-bottom: 5px solid #bbbbbb;
+}

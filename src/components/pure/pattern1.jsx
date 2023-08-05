@@ -20,7 +20,8 @@ const PatternOne = () => {
 
   return (
     <div>
-      <img src={RandomImg[imgIndex]} className='img' />
+      <img src={RandomImg[imgIndex]} className='img' style={{height: '120px',
+    width: '120px'}}/>
     </div>
   );
 };
