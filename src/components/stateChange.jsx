@@ -41,7 +41,7 @@ const StateChange = ({addData}) => {
 
   return (
     <div>
-      { luck && <img src={luck} className={`img ${animate ? 'img-spin' : ''}`} />}
+      { luck && <img src={luck} style={{width: '130px', height: '130px'}} className={`img ${animate ? 'img-spin' : ''}`} />}
     </div>
   );
 }

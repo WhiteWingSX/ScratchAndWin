@@ -10,7 +10,7 @@ const QuestionRandom1 = ({addData, finish}) => {
 
     return (
         <div>
-        {clicked ? <StateChange addData={addData}/>  : 
+        {clicked ? <StateChange addData={addData} />  :
         <img className='img' onClick={() => !finish && setClicked(true)} src={questionImg} style={{height: '120px',
     width: '120px'}}/>
         }
