@@ -23,6 +23,16 @@
     animation: changeColor4 800ms infinite alternate;
 }
 
+.square5 {
+    background-color: #252499;
+    animation: changeColor5 800ms infinite alternate;
+}
+
+.square6 {
+    background-color: #34339d;
+    animation: changeColor6 800ms infinite alternate;
+}
+
 @keyframes changeColor1{
      
   100% {
@@ -49,6 +59,20 @@
   100% {
     background-color: #9f1212;
   }
+}
+
+@keyframes changeColor5{
+
+    100% {
+        background-color: #2524dd;
+    }
+}
+
+@keyframes changeColor6{
+
+    100% {
+        background-color: #4341cc;
+    }
 }
 
 .square-clicked {
